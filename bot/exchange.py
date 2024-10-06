@@ -21,6 +21,7 @@ def get_last_price():
         return response.json()
     except Exception as e:
         log(message=str(e), level="error")
+        print(e)
 
 
 def get_balances():
@@ -33,3 +34,23 @@ def get_balances():
         return response.json()
     except Exception as e:
         log(message=str(e), level="error")
+        print(e)
+
+
+def create_order(symbol: str, side: str, price: float, quantity: float):
+    try:
+        url = base_url + '/create order'.replace(' ', '')
+        response = post(
+            url=url,
+            auth=auth,
+            data={
+                'symbol': symbol,
+                'side': side,
+                'price': price,
+                'quantity': quantity
+            }
+        )
+        return response.json()
+    except Exception as e:
+        log(str(e), 'error')
+        print(e)

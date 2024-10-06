@@ -1,5 +1,5 @@
 import sys
-from termcolor import colored, cprint
+from termcolor import cprint
 from bot.commands.check import run as check
 from bot.commands.new import run as new
 
