@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "bot-spot-1"
+version = "0.1.0"
+description = ""
+authors = ["netwarp <resethread@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+python-dotenv = "^1.0.1"
+pymongo = "^4.10.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
