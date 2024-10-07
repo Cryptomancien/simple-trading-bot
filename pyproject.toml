@@ -11,6 +11,7 @@ requests = "^2.32.3"
 python-dotenv = "^1.0.1"
 pymongo = "^4.10.1"
 termcolor = "^2.4.0"
+flask = "^3.0.3"
 
 
 [build-system]
