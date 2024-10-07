@@ -92,7 +92,7 @@ def run():
             order_id = cycle["order_sell_id"]
             order = exchange.get_order(order_id)
             if order["isActive"]:
-                pp(f'{order_id} order buy still active')
+                pp(f'{order_id} order sell still active')
             else:
                 update_cycle_status_by_id(
                     cycle["_id"],
