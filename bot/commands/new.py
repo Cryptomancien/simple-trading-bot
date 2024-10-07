@@ -58,22 +58,20 @@ def run():
     cprint("\n Balance playable: " + colored(balance_playable, color="green"))
 
     # execute order and store data
-    # order_exchange = exchange.create_order("BTC_USDT", "buy", price=price_input, quantity=balance_playable)
-    # pp(order_exchange)
+    order_exchange = exchange.create_order("BTC_USDT", "buy", price=price_input, quantity=balance_playable)
+    pp(order_exchange)
 
     order_data = order_db
-    # order_data["status"] = Status.ORDER_BUY_PLACED
-    # order_data["order_buy_id"] = order_exchange["id"]
-    # order_data["order_buy_price"] = order_exchange["price"]
-    # order_data["order_buy_quantity"] = order_exchange["quantity"]
-    # order_data["order_buy_date"] = order_exchange["createdAt"]
+    order_data["status"] = Status.ORDER_BUY_PLACED.value
+    order_data["order_buy_id"] = order_exchange["id"]
+    order_data["order_buy_price"] = order_exchange["price"]
+    order_data["order_buy_quantity"] = order_exchange["quantity"]
+    order_data["order_buy_date"] = order_exchange["createdAt"]
 
-    # order_data["order_sell_id"] = ""
-    # order_data["order_sell_price"] = str(price_output)
-    # order_data["order_sell_quantity"] = balance_playable
-    # order_data["order_sell_date"] = ""
+    order_data["order_sell_id"] = ""
+    order_data["order_sell_price"] = str(price_output)
+    order_data["order_sell_quantity"] = balance_playable
+    order_data["order_sell_date"] = ""
 
-
-
-    # db.insert_one(order_data)
-    # cprint("\n Cycle started successfully", color="light_green")
+    db.insert_one(order_data)
+    cprint("\n Cycle started successfully", color="light_green")

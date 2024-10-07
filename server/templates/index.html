@@ -7,7 +7,9 @@
         <link rel="stylesheet" href="/app.css">
         <title>Simple Trading Bot</title>
         <style>
-
+            .small {
+                font-size: 0.8rem;
+            }
         </style>
     </head>
     <body class="">
@@ -45,13 +47,14 @@
                              <div>Status</div>
                             <small>{{ cycles_completed_count }}/{{ cycles_count }}</small>
                         </th>
+                        <th>Quantity (BTC)</th>
                         <th class="bg-success-subtle">Order Buy ID</th>
                         <th class="bg-success-subtle">Order Buy Price</th>
-                        <th class="bg-success-subtle">Order Buy Quantity</th>
+
 
                         <th class="bg-danger-subtle">Order Sell ID</th>
                         <th class="bg-danger-subtle">Order Sell Price</th>
-                        <th class="bg-danger-subtle">Order Sell Quantity</th>
+
 
                         <th>Gain</th>
                     </tr>
@@ -61,15 +64,16 @@
                         <tr>
                             <td class="{{ 'bg-success text-success-emphasis' if cycle.status == 'completed' else 'bg-warning-subtle' }}">{{ cycle.status }}</td>
 
+                            <td>{{ cycle.order_buy_quantity }}</td>
                             <td class="small">{{ cycle.order_buy_id }}</td>
                             <td>{{ cycle.order_buy_price }}</td>
-                            <td>{{ cycle.order_buy_quantity }}</td>
+
 
                             <td class="small">{{ cycle.order_sell_id }}</td>
                             <td>{{ cycle.order_sell_price }}</td>
-                            <td>{{ cycle.order_sell_quantity }}</td>
 
-                            <td class="small">
+
+                            <td>
                                 {% set current = cycle.order_sell_price | float * cycle.order_sell_quantity | float %}
                                 {% set previous = cycle.order_buy_price | float * cycle.order_buy_quantity | float %}
 
