@@ -6,15 +6,15 @@
 ## Required
 
 - Git
-- Python 3+
+- Python 3.12 +
 - Poetry
 - MongoDB
 
 ## Install
 
 ``` bash
-git clone https://github.com/zzz
-cd aa
+git clone https://github.com/cryptomancien/simple-trading-bot
+cd simple-trading-bot
 poetry install
 ```
 
@@ -24,3 +24,19 @@ poetry install
 - Enable 2FA
 - Create API key
 - Fill USDT
+
+## Launch
+
+``` bash
+# Check requirement
+poetry run main.py -c
+
+# Start new cycle
+poetry run main.py -n
+
+# Update running cycles
+poetry run main.py -u
+
+# Start local server, port 8080
+poetry run main.py -s
+```
