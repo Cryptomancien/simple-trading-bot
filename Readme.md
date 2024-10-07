@@ -16,6 +16,7 @@
 git clone https://github.com/cryptomancien/simple-trading-bot
 cd simple-trading-bot
 poetry install
+cp .env.example .env
 ```
 
 ## Config
@@ -24,6 +25,7 @@ poetry install
 - Enable 2FA
 - Create API key
 - Fill USDT
+- Change keys in .env
 
 ## Launch
 
