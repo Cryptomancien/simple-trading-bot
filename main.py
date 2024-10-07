@@ -2,6 +2,7 @@ import sys
 from termcolor import cprint
 from bot.commands.check import run as check
 from bot.commands.new import run as new
+from bot.commands.update import run as update
 from server.app import __main__ as server
 
 
@@ -19,6 +20,8 @@ if __name__ == '__main__':
         check()
     elif "--new" in argv or "-n" in argv:
         new()
+    elif "--update" in argv or "-u" in argv:
+        update()
     elif "--server" in argv or "-s" in argv:
         server()
     else:

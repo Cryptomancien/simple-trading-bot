@@ -3,6 +3,7 @@ from enum import Enum
 
 class Status(Enum):
     ORDER_BUY_PLACED = "order_buy_placed"
+    ORDER_BUY_FILLED = "order_buy_filled"
     ORDER_SELL_PLACED = "order_sell_filled"
     COMPLETED = "completed"
 

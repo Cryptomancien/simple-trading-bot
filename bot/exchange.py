@@ -54,3 +54,16 @@ def create_order(symbol: str, side: str, price: float, quantity: float):
     except Exception as e:
         log(str(e), 'error')
         print(e)
+
+
+def get_order(order_id: str):
+    try:
+        url = base_url + '/get order'.replace(' ', '') + '/' + order_id
+        response = get(
+            url=url,
+            auth=auth,
+        )
+        return response.json()
+    except Exception as e:
+        log(str(e), 'error')
+        print(e)
