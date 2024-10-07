@@ -28,7 +28,10 @@ def run():
     sell_offset = abs(sell_offset)
 
     price_input = last_price - buy_offset
+    price_input = str(price_input)
+
     price_output = last_price + sell_offset
+    price_output = str(price_output)
 
     cprint("\n Price input: " + colored(price_input, color="green"))
     cprint("\n Price output: " + colored(price_output, color="green"))
@@ -50,7 +53,7 @@ def run():
     percent = getenv("PERCENT_AVAILABLE=6") or 6
     balance_playable = get_trade_amount(balance_usd, percent)
     balance_playable = "{:.6f}".format(balance_playable / float(price_input))
-    balance_playable = float(balance_playable)
+    balance_playable = str(balance_playable)
 
     cprint("\n Balance playable: " + colored(balance_playable, color="green"))
 
@@ -64,9 +67,13 @@ def run():
     # order_data["order_buy_price"] = order_exchange["price"]
     # order_data["order_buy_quantity"] = order_exchange["quantity"]
     # order_data["order_buy_date"] = order_exchange["createdAt"]
-    order_data["TEST"] = True
-    order_data = dict(order_data)
+
+    # order_data["order_sell_id"] = ""
+    # order_data["order_sell_price"] = str(price_output)
+    # order_data["order_sell_quantity"] = balance_playable
+    # order_data["order_sell_date"] = ""
 
 
-    db.insert_one(order_data)
-    cprint("\n Cycle started successfully", color="light_green")
+
+    # db.insert_one(order_data)
+    # cprint("\n Cycle started successfully", color="light_green")
