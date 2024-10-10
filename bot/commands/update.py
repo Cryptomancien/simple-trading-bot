@@ -52,6 +52,8 @@ def run():
             if order["isActive"]:
                 pp(f'{order_id} order buy still active')
             else:
+                pp(f'Start updating cycle {cycle["_id"]} ->  {order_id} completed')
+
                 update_cycle_status_by_id(
                     cycle["_id"],
                     Status.ORDER_BUY_FILLED.value
@@ -63,31 +65,32 @@ def run():
                     new_sell_price = cycle["order_sell_price"]
                     new_sell_price = float(new_sell_price) + 100
                     new_sell_price = str(new_sell_price)
+                    order_sell_price = new_sell_price
 
                     update_cycle_sell_price_by_id(
                         cycle["_id"],
                         new_sell_price
                     )
 
-                    order_sell = exchange.create_order(
-                        symbol="BTC_USDT",
-                        side="sell",
-                        price=float(new_sell_price),
-                        quantity=order_sell_quantity
-                    )
+                order_sell = exchange.create_order(
+                    symbol="BTC_USDT",
+                    side="sell",
+                    price=float(order_sell_price),
+                    quantity=order_sell_quantity
+                )
 
-                    db.update_one(
-                        {
-                            "_id": ObjectId(cycle["_id"])
-                        },
-                        {
-                            "$set": {
-                                "status": Status.ORDER_SELL_PLACED.value,
-                                "order_sell_id": order_sell["id"],
-                                "order_sell_date": order_sell["createdAt"]
-                            }
+                db.update_one(
+                    {
+                        "_id": ObjectId(cycle["_id"])
+                    },
+                    {
+                        "$set": {
+                            "status": Status.ORDER_SELL_PLACED.value,
+                            "order_sell_id": order_sell["id"],
+                            "order_sell_date": order_sell["createdAt"]
                         }
-                    )
+                    }
+                )
         elif cycle_status == Status.ORDER_SELL_PLACED.value:
             order_id = cycle["order_sell_id"]
             order = exchange.get_order(order_id)
