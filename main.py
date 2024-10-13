@@ -11,7 +11,7 @@ def menu():
     cprint(f"--check    -c \t Check config \n")
     cprint(f"--new      -n \t Start new cycle \n")
     cprint(f"--update   -u \t Update running cycles \n")
-    cprint(f"--server   -s \t Update running cycles \n")
+    cprint(f"--server   -s \t Run server \n")
 
 
 if __name__ == '__main__':
