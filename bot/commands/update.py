@@ -52,7 +52,7 @@ def run():
             if order["isActive"]:
                 pp(f'{order_id} order buy still active')
             else:
-                pp(f'Start updating cycle {cycle["_id"]} ->  {order_id} completed')
+                pp(f'Start updating cycle {cycle["_id"]} ->  {order_id} filled')
 
                 update_cycle_status_by_id(
                     cycle["_id"],
