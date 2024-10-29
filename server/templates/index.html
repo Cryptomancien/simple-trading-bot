@@ -10,6 +10,18 @@
             .small {
                 font-size: 0.8rem;
             }
+
+            td.completed {
+                background: #5ea66c;
+            }
+
+            td.order_buy_placed {
+                background: #ccaf78;
+            }
+
+            td.order_sell_placed {
+                background: #cc14c1;
+            }
         </style>
     </head>
     <body class="">
@@ -62,7 +74,7 @@
                 <tbody>
                     {% for cycle in cycles %}
                         <tr>
-                            <td class="{{ 'bg-success text-success-emphasis' if cycle.status == 'completed' else 'bg-warning-subtle' }}">{{ cycle.status }}</td>
+                            <td class="{{ cycle.status }} ">{{ cycle.status }}</td>
 
                             <td>{{ cycle.order_buy_quantity }}</td>
                             <td class="small">{{ cycle.order_buy_id }}</td>
