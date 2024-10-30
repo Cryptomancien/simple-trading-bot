@@ -27,7 +27,10 @@ def index():
         buy_total += buy
         sell_total += sell
 
-    percent = (sell_total - buy_total) / buy_total * 100
+    if sell_total > 0:
+        percent = (sell_total - buy_total) / buy_total * 100
+    else:
+        percent = 0
 
     return render_template(
         "index.html",
