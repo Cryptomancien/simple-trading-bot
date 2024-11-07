@@ -32,13 +32,17 @@ cp .env.example .env
 ``` bash
 # Check requirement
 poetry run main.py -c
+poetry run python main.py -c
 
 # Start new cycle
 poetry run main.py -n
+poetry run python main.py -n
 
 # Update running cycles
 poetry run main.py -u
+poetry run python main.py -u
 
 # Start local server, port 8080
 poetry run main.py -s
+poetry run python main.py -s
 ```
