@@ -50,7 +50,7 @@ def run():
 
     cprint("\n Balance USDT: " + colored(balance_usd, color="green"))
 
-    percent = getenv("PERCENT_AVAILABLE=6") or 6
+    percent = getenv("PERCENT_AVAILABLE") or 6
     balance_playable = get_trade_amount(balance_usd, percent)
     balance_playable = "{:.6f}".format(balance_playable / float(price_input))
     balance_playable = str(balance_playable)
